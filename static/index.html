@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Antigravity Web Remote</title>
+  <link rel="stylesheet" href="xterm.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Header -->
+    <header class="app-header">
+      <div class="brand">
+        <span class="logo-icon">🪐</span>
+        <span class="brand-title">Antigravity Shell Remote</span>
+        <div class="status-badge" id="statusBadge">
+          <span class="status-dot" id="statusDot"></span>
+          <span id="statusText">Connecting...</span>
+        </div>
+      </div>
+      <div class="quick-actions">
+        <button type="button" class="btn btn-primary" id="btnAgy" title="Start Antigravity CLI">▶ Launch agy</button>
+        <button type="button" class="btn btn-secondary" id="btnCtrlC" title="Send Interrupt (Ctrl+C)">^C</button>
+        <button type="button" class="btn btn-secondary" id="btnCtrlD" title="Send EOF (Ctrl+D)">^D</button>
+        <button type="button" class="btn btn-secondary" id="btnClear" title="Clear Terminal">Clear</button>
+        <button type="button" class="btn btn-secondary" id="btnReconnect" title="Reconnect WebSocket">Reconnect</button>
+      </div>
+    </header>
+
+    <!-- Terminal Container -->
+    <main class="terminal-wrapper" id="terminalWrapper">
+      <div id="terminal"></div>
+    </main>
+
+    <!-- Interactive Command Textbox -->
+    <footer class="app-footer">
+      <form id="commandForm" class="command-bar">
+        <span class="prompt-symbol">❯</span>
+        <input 
+          type="text" 
+          id="cmdInput" 
+          placeholder="Type a command and press Enter (e.g. agy, ls, cd ..) or type directly in terminal..." 
+          autocomplete="off" 
+          spellcheck="false"
+        />
+        <button type="submit" class="btn btn-send" id="btnSend">Send</button>
+      </form>
+    </footer>
+  </div>
+
+  <script src="xterm.js"></script>
+  <script src="xterm-addon-fit.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
